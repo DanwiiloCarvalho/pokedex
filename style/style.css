@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    /* background: linear-gradient(90deg, #ffff00, #ff0000) no-repeat; */
+    background: linear-gradient(90deg, #e4e4dc, #413e3e) no-repeat;
+}
+
+
+main > h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 0px 0px 3px white;
+}
+
+main.container {
+    height: 100%;
+    width: 90%;
+    margin: auto;
+    padding: 20px 0px;
+}
+
+main.container > ul.pokemon-list {
+    display: grid;
+    height: 100%;
+    justify-items: center;
+    gap: 1rem;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/*Estilização dos cards*/
+
+li.card {
+    height: 250px;
+    width: 250px;
+    /* background-color: rgb(245, 241, 241); */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    cursor: pointer;
+}
+
+li.card:hover {
+    box-shadow: 0px 2px 4px black;
+}
+
+li.card > div.circle {
+    background-color: white;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.name-type {
+    text-align: center;
+    font-size: .9em;
+}
+
+/*Cores dos cards de acordo com o tipo do Pokémon*/
+.fire {
+    background-color: rgba(255, 0, 0, 0.24);
+}
+
+.water {
+    background-color: rgba(28, 60, 150, 0.24);
+}
+
+.grass {
+    background-color: rgba(43, 255, 0, 0.24);
+}
+
+.poison {
+    background-color: rgba(111, 0, 255, 0.24);
+}
+
+.normal {
+    background-color: rgba(255, 240, 240, 0.24);
+}
+
+.rock {
+    background-color: rgba(73, 72, 72, 0.24);
+}
+
+.psychic {
+    background-color: rgba(255, 0, 140, 0.524);
+}
+
+.ice {
+    background-color: rgba(219, 213, 213, 0.24);
+}
+
+.ground {
+    background-color: rgba(255, 102, 0, 0.24);
+}
+
+.electric {
+    background-color: rgba(235, 206, 47, 0.24);
+}
+
+.dragon {
+    background-color: rgba(0, 255, 213, 0.24);
+}
+
+.fighting {
+    background-color: rgba(255, 72, 0, 0.24);
+}
+
+.ghost {
+    background-color: rgba(117, 108, 108, 0.24);
+}
+
+.fairy {
+    background-color: rgba(243, 4, 76, 0.24);
+}
+
+.bug {
+    background-color: rgba(4, 119, 4, 0.24);
+}
