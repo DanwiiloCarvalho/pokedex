@@ -42,7 +42,7 @@ async function cardsGenerator() {
                 <img src="${currentValue.sprites}" alt="">
             </div>
             <div class="name-type">
-                <h2>${currentValue.id}. ${currentValue.name}</h2>
+                <h2>${currentValue.id}. <span>${currentValue.name}</span></h2>
                 <p>${currentValue.types.join(" | ")}</p>
             </div>
         </li>

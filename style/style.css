@@ -53,6 +53,7 @@ li.card {
     gap: 20px;
     align-items: center;
     cursor: pointer;
+    transition: .2s;
 }
 
 li.card:hover {
@@ -72,6 +73,10 @@ li.card > div.circle {
 div.name-type {
     text-align: center;
     font-size: .9em;
+}
+
+div.name-type > h2 > span {
+    text-transform: capitalize;
 }
 
 /*Cores dos cards de acordo com o tipo do Pokémon*/
