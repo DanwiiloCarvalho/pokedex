@@ -144,7 +144,8 @@ div.name-type > h2 > span {
 /*Modal*/
 section.modal {
     width: 90%;
-    height: 80vh;
+    /* height: 80vh; */
+    padding-bottom: 20px;
     background-color: white;
     position: fixed;
     top: 50%;
@@ -156,7 +157,7 @@ section.modal {
     width: 100vw;
     height: 100vh;
     background-color: #474646d8;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
 }
@@ -179,16 +180,20 @@ section.modal > p.number {
 section.modal > p.description {
     text-align: justify;
     padding: 0px 25px;
+    margin-top: 25px;
 }
 
 section.modal > span#close {
     position: absolute;
+    cursor: pointer;
     top: 27px;
     right: 10px;
 }
 
 section.modal > img.official-artwork {
-    width: 100%;
+    width: 60%;
+    display: block;
+    margin: 15px auto;
 }
 
 .hide {
@@ -197,4 +202,32 @@ section.modal > img.official-artwork {
 
 .inactive-card {
     pointer-events: none;
+}
+
+@media screen and (min-width: 768px) {
+    section.modal {
+        width: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding-bottom: 40px;
+    }
+
+    section.modal > img.official-artwork {
+        margin: 100px auto;
+    }
+
+    section.modal > p.description {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    section.modal {
+        width: 40%;
+    }
+
+    section.modal > img.official-artwork {
+        width: 40%;
+        margin: 100px auto;
+    }
 }

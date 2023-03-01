@@ -36,7 +36,7 @@ async function fetchPokemon(url) {
 async function showDetails(url) {
     const responseDetails = await fetch(url);
     const jsonDetails = await responseDetails.json();
-    console.log(jsonDetails);
+    /* console.log(jsonDetails); */
 
     /**Renderização do filtro escuro do fundo*/
     const body = document.querySelector("body");
@@ -48,16 +48,36 @@ async function showDetails(url) {
     const main = document.querySelector("main.container");
     const modal = document.createElement("section");
     modal.classList.add("modal");
-    document.querySelector("body").classList.add("hide");
+    body.classList.add("hide");
     main.appendChild(modal);
+
+    /**Correção do idioma da descrição */
+    const englishDescription = jsonDetails.flavor_text_entries.filter(value => {
+        if(value.language.name === 'en') return value;
+    });
+    
+
+    //<img class="official-artwork" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${jsonDetails.id}.png">
+    /* console.log(englishDescription); */
     const modalContent = `
         <h3>${jsonDetails.name}</h3>
         <span id="close" class="material-symbols-outlined">close</span>
         <p class="number">Nº ${jsonDetails.id}</p>
-        <img class="official-artwork" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${jsonDetails.id}.png">
-        <p class="description">${jsonDetails.flavor_text_entries[0].flavor_text.replace("\n", " ").replace("\f", " ")}</p>
+        <img class="official-artwork" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${jsonDetails.id}.svg">
+        <p class="description">${englishDescription[0].flavor_text.replace("\n", " ").replace("\f", " ")}</p>
     `;
     modal.innerHTML = modalContent;
+
+    /**Implementação do botão close do modal*/
+    const closeButton = document.querySelector("section.modal > span#close");
+    closeButton.addEventListener("click", () => {
+        document.querySelector("main.container").removeChild(modal);
+        body.removeChild(filter);
+        body.classList.remove("hide");
+
+        const pokemonCards = document.querySelectorAll("li.card");
+        pokemonCards.forEach(element => element.classList.remove("inactive-card"));
+    });
 }
 
 /*Função que pega a promise gerada pelo fetchPokémon, gera um arrays de objetos com dados de cada pokémon e ao final gera todos os cards*/
